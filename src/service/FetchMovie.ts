@@ -1,5 +1,6 @@
 import MovieAPI from "../models/MovieAPI"
 import { apiKey } from "./apiKey"
+
 class FetchMovie {
 	async getMovie(movieName: string): Promise<MovieAPI> {
 		let data: MovieAPI
