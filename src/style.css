@@ -140,11 +140,13 @@ h1 {
 .tag {
 	width: auto;
 	padding: 6px 15px;
-	color: white;
-	background-color: #658af6;
+	background: white;
+	color: #658af6;
+	border: 1px solid #658af6;
 	border-radius: 10px;
 	margin-right: 10px;
 	text-align: center;
+	font-size: 0.8em;
 	margin-bottom: 10px;
 }
 
