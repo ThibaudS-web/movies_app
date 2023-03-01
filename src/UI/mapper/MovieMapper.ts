@@ -1,6 +1,5 @@
 import MovieAPI from "../../models/MovieAPI"
 import MovieLocal from "../../models/MovieLocal"
-import RatingsMovieAPI from "../../models/RatingsMovie"
 
 /**
  * @description Mapper classes apply data mapping rules between two layers of entities. This mapping layer reduces the impact of external data sources.
@@ -10,7 +9,7 @@ import RatingsMovieAPI from "../../models/RatingsMovie"
  */
 
 class MovieMapper {
-	movieAPI: MovieAPI
+	private movieAPI: MovieAPI
 	constructor(movieAPI: MovieAPI) {
 		this.movieAPI = movieAPI
 	}
@@ -19,20 +18,22 @@ class MovieMapper {
 		return new MovieLocal(
 			this.movieAPI.Title,
 			this.movieAPI.Year,
-			this.getFirstRatingSource(this.movieAPI.Ratings),
+			this.movieAPI.imdbRating,
 			this.stringToArrayGenre(this.movieAPI.Genre),
 			this.movieAPI.Actors,
 			this.movieAPI.Plot,
-			this.movieAPI.Poster
+			this.movieAPI.Poster,
+			this.movieAPI.Runtime,
+			this.movieAPI.Country,
+			this.movieAPI.Writer,
+			this.movieAPI.Response
 		)
 	}
 
 	private stringToArrayGenre(genres: string) {
-		return genres.split(",")
-	}
-
-	private getFirstRatingSource(ratings: Array<RatingsMovieAPI>) {
-		return ratings[0].Value
+		const arr = genres.split(",").map((genre) => genre.trim())
+		console.log(arr[0], arr[1], arr[2])
+		return genres.split(",").map((genre) => genre.trim())
 	}
 }
 

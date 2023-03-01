@@ -17,7 +17,7 @@ class MovieAPI {
 	Awards: string
 	Poster: string
 	Metascore: string
-	imbdRating: string
+	imdbRating: string
 	imbdVotes: string
 	imbdID: string
 	Type: string
@@ -41,7 +41,7 @@ class MovieAPI {
 		Awards: string,
 		Poster: string,
 		Metascore: string,
-		imbdRating: string,
+		imdbRating: string,
 		imbdVotes: string,
 		imbdID: string,
 		Type: string,
@@ -64,7 +64,7 @@ class MovieAPI {
 		this.Awards = Awards
 		this.Poster = Poster
 		this.Metascore = Metascore
-		this.imbdRating = imbdRating
+		this.imdbRating = imdbRating
 		this.imbdVotes = imbdVotes
 		this.imbdID = imbdID
 		this.Type = Type
