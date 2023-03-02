@@ -1,6 +1,9 @@
 import MovieAPI from "./models/MovieAPI"
 import FetchMovie from "./service/FetchMovie"
-import { getMovieHTML } from "./templates/displayMovie"
+import { getEmptyValueHTML } from "./templates/emptyValue"
+import { getErrorAPIMessageHTML } from "./templates/errorAPI"
+import { getMovieHTML } from "./templates/movie"
+import { getNotFoundMovieHTML } from "./templates/notFoundMovie"
 import MovieMapper from "./UI/mapper/MovieMapper"
 
 const fetchMovie = new FetchMovie()
@@ -10,34 +13,36 @@ const inputMovie = document.getElementById("search-movie") as HTMLInputElement
 const result = document.getElementById("result") as HTMLDivElement
 
 function mapMovieAPIToLocal(movie: MovieAPI) {
-	console.log(new MovieMapper(movie).mapAPIToLocal())
 	return new MovieMapper(movie).mapAPIToLocal()
 }
 
-function showMovie(movieInput: HTMLInputElement) {
-	const movieName = movieInput.value
+function displayMovieInformations(movieInput: HTMLInputElement) {
+	const movieName = movieInput.value.trim()  
+
 	if (movieName.length === 0) {
-		result.innerHTML = "<h2>Enter a title please</h2>"
+		getEmptyValueHTML(result)
 		return
 	}
+
 	fetchMovie
 		.getMovie(movieName)
 		.then((movie) => {
-			console.log(movie)
 			if (movie.Response == "True") {
-				const mappedMovie = mapMovieAPIToLocal(movie)
-				getMovieHTML(mappedMovie, result)
+				getMovieHTML(mapMovieAPIToLocal(movie), result)
 			} else {
-				result.innerHTML = "<h2>Movie not found!</h2>"
+				getNotFoundMovieHTML(result)
 			}
 		})
 		.catch(() => {
-			result.innerHTML = "<h2>Problem occured, try later...</h2>"
+			getErrorAPIMessageHTML(result)
 		})
 }
 
-searchBtn?.addEventListener("click", async () => {
-	showMovie(inputMovie)
+searchBtn?.addEventListener("click", () => {
+	displayMovieInformations(inputMovie)
 	inputMovie.value = ""
 })
 
+inputMovie.addEventListener('change', () => {
+	console.log()
+})

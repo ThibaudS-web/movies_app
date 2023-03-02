@@ -40,3 +40,5 @@ export const getMovieHTML = (movie: MovieLocal, node: HTMLElement) => {
         </div>
     `
 }
+
+

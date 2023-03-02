@@ -5,7 +5,7 @@ import MovieLocal from "../../models/MovieLocal"
  * @description Mapper classes apply data mapping rules between two layers of entities. This mapping layer reduces the impact of external data sources.
  * Here, we use a mapper class to transform API data into usable local data.
  *
- * The mapAPI() method transforms the API model into a local model.
+ * The mapAPIToLocal() method transforms the API model into a local model.
  */
 
 class MovieMapper {
@@ -31,8 +31,6 @@ class MovieMapper {
 	}
 
 	private stringToArrayGenre(genres: string) {
-		const arr = genres.split(",").map((genre) => genre.trim())
-		console.log(arr[0], arr[1], arr[2])
 		return genres.split(",").map((genre) => genre.trim())
 	}
 }
