@@ -1,12 +1,9 @@
-import ShortMovieLocal from "../../models/ShortMovieLocal"
+import ShortMovieLocal from "../../models/short-movies/ShortMovieLocal"
 import { itemMovie } from "./itemMovie"
 
-export const moviesList = (parentNode: HTMLElement, moviesList: ShortMovieLocal[]) => {
-	const list = `
-        <ul id="movies-list">
-            ${moviesList.map((movie) => itemMovie(movie))}
-        </ul>
-    `
-
-	parentNode.append(list)
+export const getMoviesListHTML = (parentNode: HTMLElement, moviesList: ShortMovieLocal[]) => {
+	const ul = document.createElement("ul")
+	ul.setAttribute("id", "movies-list")
+	ul.innerHTML = moviesList.map((movie) => itemMovie(movie)).join("")
+	parentNode.append(ul)
 }

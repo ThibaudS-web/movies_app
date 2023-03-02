@@ -1,5 +1,5 @@
-import ShortMovieAPI from "../../models/ShortMovieAPI"
-import ShortMovieLocal from "../../models/ShortMovieLocal"
+import ShortMovieAPI from "../../models/short-movies/ShortMovieAPI"
+import ShortMovieLocal from "../../models/short-movies/ShortMovieLocal"
 
 /**
  * @description Mapper classes apply data mapping rules between two layers of entities. This mapping layer reduces the impact of external data sources.

@@ -1,4 +1,4 @@
-import MovieLocal from "../models/MovieLocal"
+import MovieLocal from "../models/movies/MovieLocal"
 
 export const getMovieHTML = (movie: MovieLocal, node: HTMLElement) => {
 	const { Poster, Title, Writer, Country, Plot, Actors, imdbRating, Year, Runtime, Genre } = movie
