@@ -1,23 +1,20 @@
 body {
-	height: 100vh;
 	margin: 0;
 	padding: 0;
 	background: linear-gradient(to top, #a6c0fe 0%, #f68084 100%);
+	background-attachment: fixed;
+
 	font-family: "Tilt Neon", cursive;
 }
 
 #search-container {
-	width: 90vw;
 	max-width: 37.5em;
 	padding: 3em 4em;
 	background-color: #ffffff;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	top: 50%;
 	background: rgba(255, 255, 255, 0.1);
-	left: 50%;
+	margin: 10vh auto 0 auto;
 	border-radius: 0.6em;
-	box-shadow: 0.9em 1.5em 2.8em rgb(0 0 0 / 10%);
+	box-shadow: 1em 1.5em 2em rgb(0 0 0 / 10%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -26,6 +23,7 @@ body {
 #search {
 	display: flex;
 	justify-content: space-between;
+	position: relative;
 }
 
 #search-movie {
@@ -87,12 +85,12 @@ h1 {
 }
 
 .error-message {
-	animation: flashes 600ms ease;
+	animation: flashes 200ms ease;
+	animation-iteration-count: 4;
 	margin-bottom: 0;
 	font-weight: 500;
 	color: #fe555a;
 }
-
 
 /*================== MOVIE CARD ==================*/
 
@@ -100,7 +98,6 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	margin-top: 48px;
-	animation: animMovieCard 4s ease;
 }
 
 #movie-topside {
@@ -181,9 +178,9 @@ h1 {
 
 #movies-list {
 	position: absolute;
-	top: 84px;
+	top: 35px;
 	z-index: 1000;
-	width: 400px;
+	width: calc(60% + 40px);
 	list-style: none;
 	padding: 0;
 	max-height: 400px;
@@ -238,17 +235,47 @@ h1 {
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
-/*================== Animation keyframes ==================*/
+/*================== MQ ==================*/
 
-@keyframes animMovieCard {
-	0% {
-		opacity: 0;
+@media (max-width: 425px) {
+	#search-container {
+		border-radius: 0;
+		padding: 2em 1em;
+		margin-top: 20px;
 	}
-
-	100% {
-		opacity: 1;
+	#search-movie {
+		font-size: 1em;
+		height: 40px;
+		width: 55%;
+	}
+	#search-btn {
+		width: 25%;
+	}
+	h1 {
+		font-size: 2.5em;
+		animation: animTitlePhone 1.5s ease;
+	}
+	#movie-infos-topside > h2 {
+		font-size: 1.2em;
+	}
+	#movie-topside {
+		flex-direction: column;
+		gap: 0;
+	}
+	#movie-img {
+		display: flex;
+		justify-content: center;
+	}
+	#movie-img > img {
+		width: 70%;
+	}
+	#movies-list {
+		width: calc(55% + 40px);
+		top: 25px;
 	}
 }
+
+/*================== Animation keyframes ==================*/
 
 @keyframes animTitle {
 	0% {
@@ -265,24 +292,24 @@ h1 {
 	}
 }
 
-@keyframes flashes {
+@keyframes animTitlePhone {
 	0% {
-		opacity: 0;
+		font-size: 1em;
+		letter-spacing: -1.8em;
 	}
-	20% {
-		opacity: 1;
-	}
-	40% {
-		opacity: 0;
-	}
-	60% {
-		opacity: 1;
-	}
-	80% {
-		opacity: 0;
+	50% {
+		letter-spacing: 0.5em;
+		font-size: 2em;
+		color: #a6c0fe;
 	}
 	100% {
-		opacity: 1;
+		letter-spacing: 0.1em;
+	}
+}
+
+@keyframes flashes {
+	50% {
+		opacity: 0;
 	}
 }
 

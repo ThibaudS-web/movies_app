@@ -49,7 +49,6 @@ function displayMovieInformations(movieInput: HTMLInputElement) {
 				getMovieHTML(mapMovieAPIToLocal(movie), resultNode)
 			} else {
 				console.log(movie.Response)
-				resultNode.setAttribute("class", "animation")
 				getNotFoundMovieMessageHTML(resultNode)
 			}
 		})
