@@ -4,7 +4,7 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             // overwrite default .html entry
-            input: '/path/to/main.js',
+            input: './src/main.ts',
         },
     },
 })
