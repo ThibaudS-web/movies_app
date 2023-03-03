@@ -8,7 +8,7 @@ export const getMovieHTML = (movie: MovieLocal, node: HTMLElement) => {
             <div id="movie-topside">
                 <div id="movie-img">
                     <img
-                        src=${Poster === "N/A" ? "../assets/image_not_found.png" : Poster}
+                        src=${Poster === "N/A" ? "/assets/image_not_found.png" : Poster}
                     />
                 </div>
                 <div id="movie-infos-topside">

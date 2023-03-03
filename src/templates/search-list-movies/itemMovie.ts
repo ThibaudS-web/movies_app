@@ -7,9 +7,7 @@ export const itemMovie = (movie: ShortMovieLocal) => {
             <li class="item-list" data-imdbID=${imdbID} >
                 <img
                     class="img-item-movie"
-                    src="${
-						Poster === "N/A" ? "../../../public/assets/image_not_found.png" : Poster
-					}"
+                    src="${Poster === "N/A" ? "/assets/image_not_found.png" : Poster}"
                     alt="${Title} movie"
                 />
                 <span>${Title} (${Year})</span>
