@@ -4,7 +4,7 @@ import ShortMovieAPI from "../models/short-movies/ShortMovieAPI"
 import { apiKey } from "./apiKey"
 
 class FetchMovie {
-	async getMovie(movieName: string): Promise<MovieAPI> {
+	async getMovieByName(movieName: string): Promise<MovieAPI> {
 		let data: MovieAPI
 		let url = `http://www.omdbapi.com/?t=${movieName}&apikey=${apiKey}`
 		try {
@@ -22,6 +22,17 @@ class FetchMovie {
 		try {
 			const result = await fetch(url)
 			data = ((await result.json()) as ApiResult<ShortMovieAPI[]>).Search
+			return data
+		} catch (err) {
+			throw new Error("Error API: ", err as Error)
+		}
+	}
+	async getMovieByID(imdbID: string) {
+		let data: MovieAPI
+		let url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`
+		try {
+			const result = await fetch(url)
+			data = await result.json()
 			return data
 		} catch (err) {
 			throw new Error("Error API: ", err as Error)

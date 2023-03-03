@@ -15,6 +15,16 @@ const inputMovie = document.getElementById("search-movie") as HTMLInputElement
 const resultNode = document.getElementById("result") as HTMLDivElement
 const searchContainer = document.getElementById("search") as HTMLDivElement
 
+function setClickOnItemMovie() {
+	document.querySelectorAll(".item-list")?.forEach((item) => {
+		item.addEventListener("click", () => {
+			fetchMovie.getMovieByID((item as HTMLLIElement).dataset.imdbid!).then((movie) => {
+				getMovieHTML(mapMovieAPIToLocal(movie), resultNode)
+			})
+		})
+	})
+}
+
 function mapMovieAPIToLocal(movie: MovieAPI) {
 	return new MovieMapper(movie).mapAPIToLocal()
 }
@@ -23,6 +33,7 @@ function resetTheDisplay() {
 	document.getElementById("movies-list")?.remove()
 	inputMovie["classList"].remove("active-list-movies")
 }
+
 function displayMovieInformations(movieInput: HTMLInputElement) {
 	const movieName = movieInput.value.trim()
 
@@ -32,11 +43,13 @@ function displayMovieInformations(movieInput: HTMLInputElement) {
 	}
 
 	fetchMovie
-		.getMovie(movieName)
+		.getMovieByName(movieName)
 		.then((movie) => {
 			if (movie.Response == "True") {
 				getMovieHTML(mapMovieAPIToLocal(movie), resultNode)
 			} else {
+				console.log(movie.Response)
+				resultNode.setAttribute("class", "animation")
 				getNotFoundMovieMessageHTML(resultNode)
 			}
 		})
@@ -45,24 +58,30 @@ function displayMovieInformations(movieInput: HTMLInputElement) {
 		})
 }
 
+function displayMoviesList(e: Event) {
+	const movieName = (e.target as HTMLInputElement).value
+
+	if (movieName.length >= 3) {
+		fetchMovie.getMoviesList(movieName).then((movies) => {
+			if (movies === undefined) return
+			document.getElementById("movies-list")?.remove()
+			const moviesList = movies.map((movie) => new ShortMovieMapper(movie).mapAPIToLocal())
+			getMoviesListHTML(searchContainer, moviesList)
+			setClickOnItemMovie()
+		})
+		inputMovie.setAttribute("class", "active-list-movies")
+	} else {
+		resetTheDisplay()
+	}
+}
+
 searchBtn?.addEventListener("click", () => {
 	displayMovieInformations(inputMovie)
 	inputMovie.value = ""
 })
 
 inputMovie.addEventListener("input", (e) => {
-	const movieName = (e.target as HTMLInputElement).value
-	console.log(movieName)
-	if (movieName.length >= 3) {
-		fetchMovie.getMoviesList(movieName).then((movies) => {
-			document.getElementById("movies-list")?.remove()
-			inputMovie.setAttribute("class", "active-list-movies")
-			const moviesList = movies.map((movie) => new ShortMovieMapper(movie).mapAPIToLocal())
-			getMoviesListHTML(searchContainer, moviesList)
-		})
-	} else {
-		resetTheDisplay()
-	}
+	displayMoviesList(e)
 })
 
 window.addEventListener("click", () => resetTheDisplay())

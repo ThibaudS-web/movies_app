@@ -9,7 +9,7 @@ body {
 #search-container {
 	width: 90vw;
 	max-width: 37.5em;
-	padding: 3em 1.8em;
+	padding: 3em 4em;
 	background-color: #ffffff;
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -86,13 +86,21 @@ h1 {
 	justify-self: center;
 }
 
+.error-message {
+	animation: flashes 600ms ease;
+	margin-bottom: 0;
+	font-weight: 500;
+	color: #fe555a;
+}
+
+
 /*================== MOVIE CARD ==================*/
 
 #movie-container {
 	display: flex;
 	flex-direction: column;
 	margin-top: 48px;
-	animation: animMovieCard 600ms ease-out;
+	animation: animMovieCard 4s ease;
 }
 
 #movie-topside {
@@ -254,6 +262,27 @@ h1 {
 	}
 	100% {
 		letter-spacing: 0.1em;
+	}
+}
+
+@keyframes flashes {
+	0% {
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }
 
