@@ -11,7 +11,7 @@ var A=Object.defineProperty;var L=(i,e,t)=>e in i?A(i,e,{enumerable:!0,configura
                     <p id="year-duration">${u} - ${v}</p>
                     <div id="rating">
                         ${d}
-                        <img id="star" src="./star.png" alt="rating" />
+                        <img id="star" src="./assets/star.png" alt="rating" />
                     </div>
                     <div id="genres"> 
                         ${h.map(M=>`<div class="tag">${M}</div>`).join("")}
