@@ -3,7 +3,7 @@ var A=Object.defineProperty;var L=(i,e,t)=>e in i?A(i,e,{enumerable:!0,configura
             <div id="movie-topside">
                 <div id="movie-img">
                     <img
-                        src=${t==="N/A"?"/assets/image_not_found.png":t}
+                        src=${t==="N/A"?"./image_not_found.png":t}
                     />
                 </div>
                 <div id="movie-infos-topside">
@@ -11,7 +11,7 @@ var A=Object.defineProperty;var L=(i,e,t)=>e in i?A(i,e,{enumerable:!0,configura
                     <p id="year-duration">${u} - ${v}</p>
                     <div id="rating">
                         ${d}
-                        <img id="star" src="../assets/star.png" alt="rating" />
+                        <img id="star" src="./star.png" alt="rating" />
                     </div>
                     <div id="genres"> 
                         ${h.map(M=>`<div class="tag">${M}</div>`).join("")}
@@ -37,7 +37,7 @@ var A=Object.defineProperty;var L=(i,e,t)=>e in i?A(i,e,{enumerable:!0,configura
             <li class="item-list" data-imdbID=${s} >
                 <img
                     class="img-item-movie"
-                    src="${o==="N/A"?"/assets/image_not_found.png":o}"
+                    src="${o==="N/A"?"./image_not_found.png":o}"
                     alt="${e} movie"
                 />
                 <span>${e} (${t})</span>
