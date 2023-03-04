@@ -63,12 +63,12 @@ function displayMoviesList(e: Event) {
 	if (movieName.length >= 3) {
 		fetchMovie.getMoviesList(movieName).then((movies) => {
 			if (movies === undefined) return
+			inputMovie.setAttribute("class", "active-list-movies")
 			document.getElementById("movies-list")?.remove()
 			const moviesList = movies.map((movie) => new ShortMovieMapper(movie).mapAPIToLocal())
 			getMoviesListHTML(searchContainer, moviesList)
 			setClickOnItemMovie()
 		})
-		inputMovie.setAttribute("class", "active-list-movies")
 	} else {
 		resetTheDisplay()
 	}
