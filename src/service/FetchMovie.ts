@@ -6,7 +6,7 @@ import { apiKey } from "./apiKey"
 class FetchMovie {
 	async getMovieByName(movieName: string): Promise<MovieAPI> {
 		let data: MovieAPI
-		let url = `http://www.omdbapi.com/?t=${movieName}&apikey=${apiKey}`
+		let url = `https://www.omdbapi.com/?t=${movieName}&apikey=${apiKey}`
 		try {
 			const result = await fetch(url)
 			data = await result.json()
@@ -18,7 +18,7 @@ class FetchMovie {
 
 	async getMoviesList(movieName: string): Promise<ShortMovieAPI[]> {
 		let data: ShortMovieAPI[]
-		let url = `http://www.omdbapi.com/?s=${movieName}&apikey=${apiKey}`
+		let url = `https://www.omdbapi.com/?s=${movieName}&apikey=${apiKey}`
 		try {
 			const result = await fetch(url)
 			data = ((await result.json()) as ApiResult<ShortMovieAPI[]>).Search
@@ -29,7 +29,7 @@ class FetchMovie {
 	}
 	async getMovieByID(imdbID: string) {
 		let data: MovieAPI
-		let url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`
+		let url = `https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`
 		try {
 			const result = await fetch(url)
 			data = await result.json()
