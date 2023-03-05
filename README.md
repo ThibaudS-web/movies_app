@@ -23,12 +23,10 @@ This project is a movie search engine that utilizes the OMDb API. The applicatio
 
 ### Install the dependencies:
 
-```
-cd movie-search-engine
-npm install
-```
+In the root of the project:  
+`npm install`
 
-### Start the application in development mode:
+### Start the application in development mode: 
 
 `npm run dev`
 
@@ -37,14 +35,17 @@ npm install
 `http://localhost:3000/`
 
 ### Deployment
+
 The application is deployed on an online link at the following address: https://thibauds-web.github.io/movies_app/
 
 Please feel free to contact me with any questions or comments!
 
 ### Author
-Thibaud Saumureau  
 
-### Contact 
-* Email: thibaud.prodev@gmail.com
-* LinkedIn: https://www.linkedin.com/in/thibaud-saumureau/
-* Website: coming soon
+Thibaud Saumureau
+
+### Contact
+
+-   Email: thibaud.prodev@gmail.com
+-   LinkedIn: https://www.linkedin.com/in/thibaud-saumureau/
+-   Website: coming soon
