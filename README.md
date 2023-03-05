@@ -19,7 +19,7 @@ This project is a movie search engine that utilizes the OMDb API. The applicatio
 
 ### Clone the repository to your local computer:
 
-`git clone https://github.com/your-name/movie-search-engine.git`
+`https://github.com/ThibaudS-web/movies_app.git`
 
 ### Install the dependencies:
 
