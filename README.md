@@ -18,30 +18,27 @@ This project is a movie search engine that utilizes the OMDb API. The applicatio
 ## Installation
 
 ### Clone the repository to your local computer:
-
 `https://github.com/ThibaudS-web/movies_app.git`
 
 ### Install the dependencies:
-
 In the root of the project:  
 `npm install`
 
 ### Start the application in development mode: 
-
 `npm run dev`
 
 ### Access the application in your browser at the following address:
-
 `http://localhost:3000/`
 
 ### Deployment
-
 The application is deployed on an online link at the following address: https://thibauds-web.github.io/movies_app/
 
-Please feel free to contact me with any questions or comments!**
+Please feel free to contact me with any questions or comments!
+
+### Lighthouse 
+![lightouse](https://user-images.githubusercontent.com/66798720/223074147-4dfcdeaa-8605-4cd4-a528-119544dacf47.png)
 
 ### Author
-
 Thibaud Saumureau
 
 ### Contact
@@ -49,3 +46,5 @@ Thibaud Saumureau
 -   Email: thibaud.prodev@gmail.com
 -   LinkedIn: https://www.linkedin.com/in/thibaud-saumureau/
 -   Website: coming soon
+
+
