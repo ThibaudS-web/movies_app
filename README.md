@@ -38,7 +38,7 @@ In the root of the project:
 
 The application is deployed on an online link at the following address: https://thibauds-web.github.io/movies_app/
 
-Please feel free to contact me with any questions or comments!
+Please feel free to contact me with any questions or comments!**
 
 ### Author
 
